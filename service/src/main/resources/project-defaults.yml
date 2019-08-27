@@ -1,0 +1,6 @@
+thorntail:
+  swagger:
+    web-app:
+      json:
+        path: /myapp/swagger.json
+      context: /myapp/swagger

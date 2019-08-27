@@ -1,1 +1,54 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    dependencies {
+        classpath group: 'io.thorntail', name: 'thorntail-gradle-plugin', version: 'latest.release'
+    }
+
+}
 apply plugin: 'java'
+subprojects {
+    apply plugin: 'java'
+//    apply plugin: 'thorntail-arquillian'
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            url 'https://maven.repository.redhat.com/nexus/content/repositories/thirdparty-releases/'
+        }
+        maven {
+            name 'Gradle Tooling'
+            url 'https://repo.gradle.org/gradle/libs-releases/'
+        }
+        maven {
+            url "https://oss.sonatype.org/content/repositories/snapshots/"
+        }
+    }
+    buildscript {
+        repositories {
+            flatDir {
+                dirs 'libs'
+            }
+            mavenLocal()
+           mavenCentral()
+        }
+    }
+    dependencies {
+        compileOnly 'javax:javaee-api:7.0'
+        testCompileOnly 'javax:javaee-api:7.0'
+        testImplementation "junit:junit:4.12"
+        //compile 'org.gradle:gradle-tooling-api:4.3.1'
+    }
+}
+
+//configurations {
+//    deploy
+//}
+//
+//def packageProject = project(':package')
+//
+//dependencies {
+//    deploy files ("${packageProject.buildDir.absolutePath}/libs/${packageProject.name}-thorntail.jar")
+//}
