@@ -19,6 +19,9 @@ subprojects {
             url 'https://maven.repository.redhat.com/nexus/content/repositories/thirdparty-releases/'
         }
         maven {
+            url 'https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/'
+        }
+        maven {
             name 'Gradle Tooling'
             url 'https://repo.gradle.org/gradle/libs-releases/'
         }
