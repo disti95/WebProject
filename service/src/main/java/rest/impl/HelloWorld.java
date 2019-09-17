@@ -21,7 +21,7 @@ import java.util.List;
 @Api(value = "/hello", description = "hello-service")
 public class HelloWorld {
 
-    @PersistenceContext(unitName = "mydef")
+    @PersistenceContext(unitName = "oracleDB")
     private EntityManager em;
 
     @GET
@@ -60,7 +60,6 @@ public class HelloWorld {
         List list = q.getResultList();
 
         return list.get(0).toString();
-//        return "nix";
     }
 
 }
