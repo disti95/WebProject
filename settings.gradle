@@ -1,3 +1,4 @@
 include 'service'
 include 'package'
+include 'core'
 

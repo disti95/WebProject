@@ -6,6 +6,7 @@ dependencies {
     compile group: 'io.thorntail', name: 'swagger', version: 'latest.release'
     compile group: 'io.thorntail', name: 'swagger-webapp', version: 'latest.release'
     compile group: 'io.thorntail', name: 'cdi', version: 'latest.release'
+    compile group: 'io.thorntail', name: 'ejb', version: 'latest.release'
     compile group: 'io.thorntail', name: 'jpa', version: 'latest.release'
     compile 'org.apache.commons:commons-lang3:3.2.1'
     compile group: 'oracle', name: 'ojdbc6', version: '11.2.0.3'
