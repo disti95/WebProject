@@ -1,3 +1,5 @@
+apply plugin: 'war'
+
 dependencies {
     providedCompile group: 'org.projectlombok', name: 'lombok', version: '1.18.10'
     providedCompile group: 'javax', name: 'javaee-api', version: 'latest.release'

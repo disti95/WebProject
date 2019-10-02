@@ -24,7 +24,7 @@ import java.util.List;
 @NoArgsConstructor
 public class OracleTestBeanImpl implements OracleTestBean {
 
-    @PersistenceContext(unitName = "oracleDB")
+//    @PersistenceContext(unitName = "oracleDB")
     private EntityManager em;
 
     @Override
