@@ -13,9 +13,9 @@ thorntail:
     data-sources:
      postgres:
        driver-name: org.postgresql
-       connection-url: jdbc:postgresql://localhost:5432/postgres
-       user-name: postgres
-       password: docker
+       connection-url: jdbc:postgresql://localhost:5432/article_shop
+       user-name: tech_user
+       password: secret
 #      data-sources:
 #        MyDS:
 #          driver-name: oracle
