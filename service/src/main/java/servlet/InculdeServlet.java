@@ -11,17 +11,16 @@ import java.io.IOException;
 /**
  * @author Christian Dittrich
  */
-@WebServlet("/servlet/forward")
-public class ForwardServlet extends HttpServlet {
+@WebServlet("/servlet/include")
+public class InculdeServlet extends HttpServlet {
 
     protected void doGet(
         final HttpServletRequest request,
         final HttpServletResponse response
     ) throws IOException, ServletException {
         final RequestDispatcher requestDispatcher = request.getRequestDispatcher("hello");
-        requestDispatcher.forward(request, response);
+        requestDispatcher.include(request, response);
         log(request.getRemoteAddr());
-        //not executed in forward only in include!
         response.getWriter().append("is printed");
     }
 

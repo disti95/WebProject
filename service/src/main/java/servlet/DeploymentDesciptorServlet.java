@@ -9,13 +9,13 @@ import java.io.IOException;
  * @author Christian Dittrich
  */
 //TODO with deployment descriptor ..
-public class TestServlet extends HttpServlet{
+public class DeploymentDesciptorServlet extends HttpServlet{
 
     protected void doGet(
         final HttpServletRequest request,
         final HttpServletResponse response
     ) throws IOException {
-        response.getWriter().append("HelloServlet has answered (GET)");
+        response.getWriter().append("DeploymentdescriptorServlet has answered (GET)");
     }
 
     protected void doPost(
