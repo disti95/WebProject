@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<web-app>
+    <servlet>
+        <servlet-name>newservlet</servlet-name>
+        <servlet-class>servlet.DeploymentDesciptorServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>newservlet</servlet-name>
+        <url-pattern>/serv</url-pattern>
+    </servlet-mapping>
+</web-app>
