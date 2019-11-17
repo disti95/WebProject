@@ -1,6 +1,5 @@
 package rest.impl.hello;
 
-import lombok.Getter;
 import rest.api.hello.HelloWorld;
 import rest.api.hello.HelloWorldBean;
 
@@ -10,7 +9,6 @@ import javax.inject.Inject;
 /**
  * @author Christian Dittrich
  */
-@Getter
 @RequestScoped
 public class HelloWorldImpl implements HelloWorld {
 
@@ -19,6 +17,6 @@ public class HelloWorldImpl implements HelloWorld {
 
     @Override
     public String getHello() {
-        return getHelloWorldBean().hello();
+        return helloWorldBean.hello();
     }
 }

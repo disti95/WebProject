@@ -1,3 +1,6 @@
+import com.bmuschko.gradle.docker.tasks.container.*
+import com.bmuschko.gradle.docker.tasks.image.*
+
 dependencies {
     compile (project(':service')) {
         exclude group: 'org.jboss.resteasy'
@@ -14,6 +17,7 @@ dependencies {
 
 apply plugin: 'thorntail'
 apply plugin: 'war'
+apply plugin: 'com.bmuschko.docker-remote-api'
 
 thorntail {
     properties {
@@ -43,3 +47,28 @@ task runApp(type: JavaExec, dependsOn: [assemble, 'thorntail-package']) {
     }
 }
 
+
+//POSTGRES
+task buildPostgresImage(type: DockerBuildImage) {
+    inputDir = file('../docker/postgres')
+    labels = [name: "myPostgresDB"]
+}
+
+task createPostgresContainer(type: DockerCreateContainer) {
+    dependsOn buildPostgresImage
+    targetImageId buildPostgresImage.getImageId()
+    containerName = "postgres_db"
+    portBindings = ['5432:5432']
+}
+
+task startPostgresContainer(type: DockerStartContainer) {
+    dependsOn createPostgresContainer
+    targetContainerId createPostgresContainer.getContainerId()
+}
+
+task create (type: Dockerfile) {
+    instruction 'FROM postgres:latest'
+    environmentVariable 'POSTGRES_DB', 'article_shop'
+    environmentVariable 'POSTGRES_USER', 'tech_user'
+    environmentVariable 'POSTGRES_PASSWORD', 'secret'
+}

@@ -5,21 +5,21 @@ buildscript {
     }
     dependencies {
         classpath group: 'io.thorntail', name: 'thorntail-gradle-plugin', version: 'latest.release'
+        classpath 'com.bmuschko:gradle-docker-plugin:5.3.0'
     }
 
 }
+
 apply plugin: 'java'
 subprojects {
     apply plugin: 'war'
 //    apply plugin: 'thorntail-arquillian'
     repositories {
+        jcenter()
         mavenLocal()
         mavenCentral()
         maven {
             url 'http://www.datanucleus.org/downloads/maven2/'
-        }
-        maven {
-            url 'https://maven.repository.redhat.com/nexus/content/repositories/thirdparty-releases/'
         }
         maven {
             url 'https://repository.jboss.org/nexus/content/repositories/thirdparty-releases/'
@@ -27,9 +27,6 @@ subprojects {
         maven {
             name 'Gradle Tooling'
             url 'https://repo.gradle.org/gradle/libs-releases/'
-        }
-        maven {
-            url "https://oss.sonatype.org/content/repositories/snapshots/"
         }
     }
     buildscript {

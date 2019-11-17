@@ -1,6 +1,5 @@
 package rest.impl.db.oracle.test;
 
-import lombok.Getter;
 import rest.api.db.oracle.test.OracleTest;
 import rest.api.db.oracle.test.OracleTestBean;
 
@@ -10,7 +9,6 @@ import javax.inject.Inject;
 /**
  * @author Christian Dittrich
  */
-@Getter
 @RequestScoped
 public class OracleTestImpl implements OracleTest{
 
@@ -19,7 +17,7 @@ public class OracleTestImpl implements OracleTest{
 
     @Override
     public String getOracleTest() {
-        return getOracleTestBean().getOracleTest();
+        return oracleTestBean.getOracleTest();
     }
 
 }

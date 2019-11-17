@@ -1,6 +1,5 @@
 package rest.impl.db.postgres.test;
 
-import lombok.Getter;
 import rest.api.db.postgres.test.PostgresTest;
 import rest.api.db.postgres.test.PostgresTestBean;
 
@@ -11,19 +10,18 @@ import javax.inject.Inject;
  * @author Christian Dittrich
  */
 @RequestScoped
-@Getter
 public class PostgresTestImpl implements PostgresTest {
 
     @Inject
     private PostgresTestBean postgresTestBean;
 
     public String getPostgresTest() {
-        return getPostgresTestBean().getPostgresTest();
+        return postgresTestBean.getPostgresTest();
     }
 
     @Override
     public String getJPQLPostgresTest() {
-        return getPostgresTestBean().getJPQLPostgresTest();
+        return postgresTestBean.getJPQLPostgresTest();
     }
 
 }
