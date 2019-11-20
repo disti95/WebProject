@@ -1,6 +1,5 @@
 package rest.impl.hello;
 
-import lombok.NoArgsConstructor;
 import rest.api.hello.HelloWorldBean;
 
 import javax.ejb.Local;
@@ -11,7 +10,6 @@ import javax.ejb.Stateless;
  */
 @Stateless
 @Local(HelloWorldBean.class)
-@NoArgsConstructor
 public class HelloWorldBeanImpl implements HelloWorldBean {
 
     @Override
