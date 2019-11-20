@@ -11,14 +11,12 @@ dependencies {
     compile group: 'io.thorntail', name: 'cdi', version: 'latest.release'
     compile group: 'io.thorntail', name: 'ejb', version: 'latest.release'
     compile group: 'io.thorntail', name: 'jpa', version: 'latest.release'
-    compile 'org.apache.commons:commons-lang3:3.2.1'
-    compile group: 'oracle', name: 'ojdbc6', version: '11.2.0.3'
 }
 
-apply plugin: 'thorntail'
 apply plugin: 'war'
-apply plugin: 'com.bmuschko.docker-remote-api'
+apply plugin: 'thorntail'
 apply plugin: 'org.flywaydb.flyway'
+apply plugin: 'com.bmuschko.docker-remote-api'
 
 thorntail {
     properties {
@@ -74,12 +72,10 @@ task create (type: Dockerfile) {
     environmentVariable 'POSTGRES_PASSWORD', 'secret'
 }
 
-//flyway
+//FLYWAY
 configurations {
     flywayMigration
 }
-
-
 
 flyway {
     url = 'jdbc:postgresql://192.168.99.100:5432/article_shop'
@@ -87,9 +83,4 @@ flyway {
     password = 'secret'
     locations = ["filesystem:${project.projectDir}/src/main/resources/flyway/postgres"]
     configurations = [ 'compileClasspath', 'flywayMigration' ]
-//    schemas = ['schema1', 'schema2', 'schema3']
-//    placeholders = [
-//            'keyABC': 'valueXYZ',
-//            'otherplaceholder': 'value123'
-//    ]
 }

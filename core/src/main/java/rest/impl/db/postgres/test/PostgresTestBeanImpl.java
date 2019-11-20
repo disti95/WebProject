@@ -15,7 +15,7 @@ import java.util.List;
  */
 @Local(PostgresTestBean.class)
 @Stateless
-public class PostgresTestBeanImpl implements PostgresTestBean{
+public class PostgresTestBeanImpl implements PostgresTestBean {
 
     @PersistenceContext(unitName = "postgres")
     private EntityManager em;
@@ -25,6 +25,7 @@ public class PostgresTestBeanImpl implements PostgresTestBean{
         Query query = em.createNativeQuery("select * from article", Article.class);
         List list = query.getResultList();
         Article a = (Article) list.get(0);
+
         return a.getName();
     }
 
@@ -32,6 +33,7 @@ public class PostgresTestBeanImpl implements PostgresTestBean{
     public String getJPQLPostgresTest() {
         Query query = em.createQuery("select a from Article a", Article.class);
         List<Article> list = query.getResultList();
+
         return list.get(0).getName() + " " + list.get(0).getPrice();
     }
 

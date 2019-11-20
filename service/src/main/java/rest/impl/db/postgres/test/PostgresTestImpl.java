@@ -15,6 +15,7 @@ public class PostgresTestImpl implements PostgresTest {
     @Inject
     private PostgresTestBean postgresTestBean;
 
+    @Override
     public String getPostgresTest() {
         return postgresTestBean.getPostgresTest();
     }

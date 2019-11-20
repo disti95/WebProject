@@ -14,15 +14,15 @@ import javax.ws.rs.core.MediaType;
  * @author Christian Dittrich
  */
 @Path("/postgres/test")
-@Api(value = "/postgres/test", description = "test oracle")
+@Api(value = "/postgres/test")
 public interface PostgresTest {
 
     @GET
     @Path("native")
     @Produces(MediaType.TEXT_HTML)
     @ApiOperation(
-            value = "test postgres",
-            response = String.class
+        value = "test postgres",
+        response = String.class
     )
     @ApiResponses({
         @ApiResponse(

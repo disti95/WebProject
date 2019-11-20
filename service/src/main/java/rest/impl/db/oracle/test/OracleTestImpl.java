@@ -10,7 +10,7 @@ import javax.inject.Inject;
  * @author Christian Dittrich
  */
 @RequestScoped
-public class OracleTestImpl implements OracleTest{
+public class OracleTestImpl implements OracleTest {
 
     @Inject
     private OracleTestBean oracleTestBean;
