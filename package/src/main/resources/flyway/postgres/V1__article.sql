@@ -1,7 +1,32 @@
-create Table article (
-	id serial PRIMARY KEY,
-	name VARCHAR (50) NOT NULL,
-	price numeric(10,2) NOT NULL
+create Table ARTICLE (
+	ID serial PRIMARY KEY,
+	NAME VARCHAR (50) NOT NULL,
+	PRICE numeric(10,2) NOT NULL
 );
 
 insert into article(name, price) values ('dummy-article', 1.23);
+
+create Table USER_TABLE (
+	CODE numeric(10),
+	NAME VARCHAR (50),
+	AGE numeric(10) NOT NULL,
+	PRIMARY KEY (code, name)
+);
+
+insert into USER_TABLE(CODE, NAME, AGE) values (1, 'christian', 25);
+insert into USER_TABLE(CODE, NAME, AGE) values (1, 'johanna', 20);
+insert into USER_TABLE(CODE, NAME, AGE) values (2, 'stefan', 27);
+
+create Table INTERNATIONAL_OBJECT (
+    UUID SERIAL,
+	ID SERIAL REFERENCES ARTICLE,
+	LANG VARCHAR (50),
+	FIELD_TYPE VARCHAR (50),
+	DESCRIPTION VARCHAR(50) NOT NULL,
+	PRIMARY KEY (UUID)
+);
+
+insert into INTERNATIONAL_OBJECT(ID, LANG, FIELD_TYPE, DESCRIPTION) values (1, 'DE', 'ARTICLE_DESCRIPTION', 'REIS');
+insert into INTERNATIONAL_OBJECT(ID, LANG, FIELD_TYPE, DESCRIPTION) values (1, 'EN', 'ARTICLE_DESCRIPTION', 'RICE');
+insert into INTERNATIONAL_OBJECT(ID, LANG, FIELD_TYPE, DESCRIPTION) values (1, 'EN', '_DUMMY_', 'SHOULD_NOT_BE_DISPLAYED');
+insert into INTERNATIONAL_OBJECT(ID, LANG, FIELD_TYPE, DESCRIPTION) values (1, 'DE', '_DUMMY_', 'SHOULD_NOT_BE_DISPLAYED');

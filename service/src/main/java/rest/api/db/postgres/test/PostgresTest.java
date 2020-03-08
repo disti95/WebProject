@@ -1,5 +1,7 @@
 package rest.api.db.postgres.test;
 
+import entities.ArticleEntity;
+import entities.InternationalObjectEnity;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiResponse;
@@ -49,5 +51,37 @@ public interface PostgresTest {
         )
     })
     String getJPQLPostgresTest();
+
+    @GET
+    @Path("international_objects")
+    @Produces(MediaType.APPLICATION_JSON)
+    @ApiOperation(
+        value = "get international object entities",
+        response = InternationalObjectEnity.class
+    )
+    @ApiResponses({
+        @ApiResponse(
+            code = 200,
+            message = "Ok",
+            response = InternationalObjectEnity.class
+        )
+    })
+    Response getInternationalObjects();
+
+    @GET
+    @Path("firstArticle")
+    @Produces(MediaType.TEXT_HTML)
+    @ApiOperation(
+        value = "get article entity with id 1",
+        response = ArticleEntity.class
+    )
+    @ApiResponses({
+        @ApiResponse(
+            code = 200,
+            message = "Ok",
+            response = ArticleEntity.class
+        )
+    })
+    Response getArticle();
 
 }

@@ -1,16 +1,16 @@
 package entities;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @author  Christian Dittrich
  */
 @Entity
 @Table(name = "article")
-public class Article {
+public class ArticleEntity implements Serializable {
 
     @Id
     @Column(name = "id")
@@ -21,6 +21,13 @@ public class Article {
 
     @Column(name = "price")
     private Double price;
+
+    @OneToMany(
+        mappedBy = "article",
+        fetch = FetchType.LAZY,
+        cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE}
+    )
+    private List<InternationalObjectEnity> descriptions = new ArrayList<>();
 
     public Integer getId() {
         return id;
@@ -44,6 +51,14 @@ public class Article {
 
     public void setPrice(final Double price) {
         this.price = price;
+    }
+
+    public List<InternationalObjectEnity> getDescriptions() {
+        return descriptions;
+    }
+
+    public void setDescriptions(List<InternationalObjectEnity> descriptions) {
+        this.descriptions = descriptions;
     }
 
 }

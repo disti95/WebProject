@@ -15,7 +15,8 @@
     <persistence-unit name="postgres">
         <provider>org.hibernate.ejb.HibernatePersistence</provider>
         <jta-data-source>java:jboss/datasources/postgres</jta-data-source>
-        <class>entities.Article</class>
+        <class>entities.ArticleEntity</class>
+        <class>entities.InternationalObjectEnity</class>
         <properties>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>

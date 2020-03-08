@@ -35,4 +35,14 @@ public class PostgresTestImpl implements PostgresTest {
         return postgresTestBean.getJPQLPostgresTest();
     }
 
+    @Override
+    public Response getInternationalObjects() {
+        return Response.ok(postgresTestBean.getInternationalObjects()).build();
+    }
+
+    @Override
+    public Response getArticle() {
+        return Response.ok(postgresTestBean.getArticle()).build();
+    }
+
 }
